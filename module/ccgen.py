@@ -1,11 +1,5 @@
 import random as r
 
-"""
-
-The few corners cut here were: fudging it on the expiration date to make it always applicable,
-and making the cards always Luhn valid, since some companies do not apply to the Luhn algorithm's ubiquity
-
-"""
 
 def generate(choice):
     choice = choice.lower()
