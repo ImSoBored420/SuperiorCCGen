@@ -13,29 +13,18 @@ with open("card_brands.json", "r") as file:
     file_contents = file.read()
     card_brands: dict = json.loads(file_contents)
 
-#lowkey useless
-def main():
-    try:
-        menu()
-        
-    except KeyboardInterrupt:
-        print("Ctrl + C pressed! Exiting...")
 
-#self
-def menu():
-    choice = input("Input brand: ").lower()
+def generate(choice):
+    choice = choice.lower()
 
     if not card_brands.get(choice):
         print(f"Card type not found: {choice}")
+        exit()
 
     length = setLength(choice)
     prefix = setPrefix(choice)
+    return returnNumber(length, prefix)
 
-    print(f"Card number: {returnNumber(length, prefix)}\nCVV:{r.randint(000,999)}\nEXP: {r.randint(1,12)}/{r.randint(1,29)}")
-
-#abstractions of various tasks
-def selectionOutput(choice):
-    print(f"{choice} selected. \nApplying... ")
 
 def setLength(choice) -> dict: # for future note, this returns a specific type in a function instead of warranting later specification ->
     return card_brands[f"{choice}"]["card_rules"][0]["card_lengths"]
@@ -73,7 +62,3 @@ def returnNumber(length, prefix):
 
         if luhn(candidate):
             return candidate
-        
-#no module 
-if __name__ == "__main__":
-    main()
