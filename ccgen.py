@@ -31,7 +31,7 @@ def menu():
     length = setLength(choice)
     prefix = setPrefix(choice)
 
-    print(f"Card number: {returnNumber(length, prefix)}\nCVV:{r.randint(000,999)}\nEXP: {r.randint(1,12)}/{r.randint(1,29)}")
+    print(f"Card number: {returnNumber(length, prefix)}\nCVV:{r.randint(000,999)}\nEXP: {r.randint(1,12)}/{r.randint(1,28)}")
 
 #abstractions of various tasks
 def selectionOutput(choice):
